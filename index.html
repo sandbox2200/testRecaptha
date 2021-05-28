@@ -165,7 +165,7 @@
         <div class="container">
             <h2>Contact Us</h2>
             
-            <div class="contact-content-section">
+            <form class="contact-content-section" onsubmit="return submitUserForm();">
                 <div class="contact-form">
                     <div class="form">
                         <input type="text" placeholder="Full Name" title="fullName" onchange="updateForm(title, value)">
@@ -174,10 +174,13 @@
                         
                         <div class="user-query">
                             <textarea placeholder=" //: Add message here" title="message" onchange="updateForm(title, value)"></textarea>
-                            <button type="button" onclick="sendToDb()">Send Message</button>
+                            <button type="submit" name="submit" nclick="sendToDb()">Send Message</button>
+                            
+                            <div class="g-recaptcha" data-sitekey="6LdIOfkaAAAAADU00_LHJgZALT78RoktcJIotRnK" data-callback="verifyCaptcha"></div>
+                            <div id="g-recaptcha-error"></div>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <div class="social-icon-section">
                     <h4>Get in touch with us</h4>
@@ -204,11 +207,6 @@
         </div>
     </section>
 
-    <form method="post" onsubmit="return submitUserForm();">
-        <div class="g-recaptcha" data-sitekey="6LdIOfkaAAAAADU00_LHJgZALT78RoktcJIotRnK" data-callback="verifyCaptcha"></div>
-        <div id="g-recaptcha-error"></div>
-        <input type="submit" name="submit" value="Submit" />
-    </form>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
     function submitUserForm() {
